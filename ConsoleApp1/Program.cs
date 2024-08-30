@@ -8,6 +8,7 @@ namespace ConsoleApp1
     {
         static void Main()
         {
+            MultiplyTwoNumbers();
             //**************************VARIABLES**************************
             //Greet user
             void GreetUser()
@@ -19,16 +20,23 @@ namespace ConsoleApp1
             }
 
             //Multiply 2 numbers
-            void MultiplyTwoNumber()
+            void MultiplyTwoNumbers()
             {
-                Console.WriteLine("Write a number");
-                int firstNumber = Int32.Parse(Console.ReadLine());
+                try
+                {
+                    Console.WriteLine("Write a number");
+                    int firstNumber = Int32.Parse(Console.ReadLine());
 
-                Console.WriteLine("Write another number");
-                int secondNumber = Int32.Parse(Console.ReadLine());
+                    Console.WriteLine("Write another number");
+                    int secondNumber = Int32.Parse(Console.ReadLine());
 
-                Console.WriteLine($"{firstNumber} times {secondNumber} is {firstNumber * secondNumber}");
-                Console.ReadLine();
+                    Console.WriteLine($"{firstNumber} times {secondNumber} is {firstNumber * secondNumber}");
+                    Console.ReadLine();
+                }
+                catch
+                {
+
+                }
             }
 
             //Verify Password
@@ -52,93 +60,123 @@ namespace ConsoleApp1
             //Check if number is higher than, lower than or equal to 100
             void HigherOrLowerThan100()
             {
-                Console.WriteLine("Write a number");
-                int userNumber = Int32.Parse(Console.ReadLine());
-                if (userNumber < 100)
+                try
                 {
-                    Console.WriteLine("Your number is lower than 100");
+                    Console.WriteLine("Write a number");
+                    int userNumber = Int32.Parse(Console.ReadLine());
+                    if (userNumber < 100)
+                    {
+                        Console.WriteLine("Your number is lower than 100");
+                    }
+                    else if (userNumber > 100)
+                    {
+                        Console.WriteLine("Your number is higher than 100");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your number is 100");
+                    }
+                    Console.ReadLine();
                 }
-                else if (userNumber > 100)
+                catch
                 {
-                    Console.WriteLine("Your number is higher than 100");
+
                 }
-                else
-                {
-                    Console.WriteLine("Your number is 100");
-                }
-                Console.ReadLine();
             }
 
             //Double and half user input
             void DoubleAndHalf()
             {
-                Console.WriteLine("Write a number");
-                int num = Int32.Parse(Console.ReadLine());
+                try
+                {
+                    Console.WriteLine("Write a number");
+                    int num = Int32.Parse(Console.ReadLine());
 
-                Console.WriteLine($"{num * 2} is double your number. {num / 2} is half your number");
-                Console.ReadLine();
+                    Console.WriteLine($"{num * 2} is double your number. {num / 2} is half your number");
+                    Console.ReadLine();
+                }
+                catch
+                {
+
+                }
             }
 
             //Calculator
             void Calculator()
             {
-                double sum = 0;
-
-                Console.WriteLine("Write first number");
-                double firstNum = Int32.Parse(Console.ReadLine());
-
-                Console.WriteLine("Write operator");
-                string arithmeticOperator = Console.ReadLine();
-
-                Console.WriteLine("Write second number");
-                double secondNum = Int32.Parse(Console.ReadLine());
-
-                switch (arithmeticOperator)
+                try
                 {
-                    case "+":
-                        sum = firstNum + secondNum;
-                        break;
+                    double sum = 0;
 
-                    case "-":
-                        sum = firstNum - secondNum;
-                        break;
+                    Console.WriteLine("Write first number");
+                    double firstNum = Int32.Parse(Console.ReadLine());
 
-                    case "*":
-                        sum = firstNum * secondNum;
-                        break;
+                    Console.WriteLine("Write operator");
+                    string arithmeticOperator = Console.ReadLine();
 
-                    case "/":
-                        sum = firstNum / secondNum;
-                        break;
+                    Console.WriteLine("Write second number");
+                    double secondNum = Int32.Parse(Console.ReadLine());
+
+                    switch (arithmeticOperator)
+                    {
+                        case "+":
+                            sum = firstNum + secondNum;
+                            break;
+
+                        case "-":
+                            sum = firstNum - secondNum;
+                            break;
+
+                        case "*":
+                            sum = firstNum * secondNum;
+                            break;
+
+                        case "/":
+                            sum = firstNum / secondNum;
+                            break;
+
+                    }
+                    Console.WriteLine(sum);
+                    Console.ReadLine();
+                }
+                catch
+                {
 
                 }
-                Console.WriteLine(sum);
-                Console.ReadLine();
+                
             }
 
             //Sum and average value
             void SumAndAverage()
             {
-                List<int> numbers = new List<int>();
-                float sum = 0;
-                while (true)
+                try
                 {
-                    Console.WriteLine("Write a number or press enter to exit");
-                    try
+                    List<int> numbers = new List<int>();
+                    float sum = 0;
+                    while (true)
                     {
-                        int newNumber = Int32.Parse(Console.ReadLine());
-                        numbers.Add(newNumber);
-                        sum += newNumber;
+                        Console.WriteLine("Write a number or press enter to exit");
+                        try
+                        {
+                            int newNumber = Int32.Parse(Console.ReadLine());
+                            numbers.Add(newNumber);
+                            sum += newNumber;
+                        }
+                        catch
+                        {
+                            break;
+                        }
+                        Console.Clear();
+                        Console.WriteLine($"The sum of your numbers is {sum}");
                     }
-                    catch
-                    {
-                        break;
-                    }
-                    Console.Clear();
-                    Console.WriteLine($"The sum of your numbers is {sum}");
+                    Console.WriteLine($"The Average value of your numbers is {sum / numbers.Count}");
+                    Console.ReadLine();
                 }
-                Console.WriteLine($"The Average value of your numbers is {sum / numbers.Count}");
-                Console.ReadLine();
+                catch
+                {
+
+                }
+                
             }
 
             //**************************INDEXING**************************
@@ -174,25 +212,32 @@ namespace ConsoleApp1
             //Number to words
             void NumbersToWords()
             {
-                string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-
-                while (true)
+                try
                 {
-                    Console.Write("Write a number: ");
-                    int num = Int32.Parse(Console.ReadLine());
+                    string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-                    if (num < numbers.Length + 1 && num > 0)
+                    while (true)
                     {
-                        Console.WriteLine(numbers[num - 1]);
-                        break;
-                    }
+                        Console.Write("Write a number: ");
+                        int num = Int32.Parse(Console.ReadLine());
 
-                    else
-                    {
-                        Console.WriteLine("number is too high or too low, try again.");
+                        if (num < numbers.Length + 1 && num > 0)
+                        {
+                            Console.WriteLine(numbers[num - 1]);
+                            break;
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("number is too high or too low, try again.");
+                        }
                     }
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
             //Reverse string
             void ReverseString()
@@ -321,54 +366,68 @@ namespace ConsoleApp1
             //Start- & Stopindex Coloured text
             void ColouredTextBetweenIndex()
             {
-                Console.WriteLine("Write a word");
-                char[] word = Console.ReadLine().ToCharArray();
-
-                Console.WriteLine("Write a start index");
-                int startIndex = Int32.Parse(Console.ReadLine());
-
-                Console.WriteLine("Write a stop index");
-                int stopIndex = Int32.Parse(Console.ReadLine());
-
-                for (int i = 0; i < word.Length; i++)
+                try
                 {
-                    if (i >= stopIndex)
+                    Console.WriteLine("Write a word");
+                    char[] word = Console.ReadLine().ToCharArray();
+
+                    Console.WriteLine("Write a start index");
+                    int startIndex = Int32.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Write a stop index");
+                    int stopIndex = Int32.Parse(Console.ReadLine());
+
+                    for (int i = 0; i < word.Length; i++)
                     {
-                        Console.ForegroundColor = ConsoleColor.Gray;
+                        if (i >= stopIndex)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                        }
+                        else if (i >= startIndex - 1)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
+                        Console.Write(word[i]);
                     }
-                    else if (i >= startIndex - 1)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    Console.Write(word[i]);
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
 
             //Switch color on letter
             void PrintTextSwitchColorOnLetter()
             {
-                Console.WriteLine("Write a word");
-                char[] word = Console.ReadLine().ToCharArray();
-
-                Console.WriteLine("Write a letter");
-                char[] letter = Console.ReadLine().ToCharArray();
-
-                Console.ForegroundColor = ConsoleColor.Gray;
-
-                for (int i = 0; i < word.Length; i++)
+                try
                 {
-                    if (word[i] == letter[0] && Console.ForegroundColor == ConsoleColor.Red)
+                    Console.WriteLine("Write a word");
+                    char[] word = Console.ReadLine().ToCharArray();
+
+                    Console.WriteLine("Write a letter");
+                    char[] letter = Console.ReadLine().ToCharArray();
+
+                    Console.ForegroundColor = ConsoleColor.Gray;
+
+                    for (int i = 0; i < word.Length; i++)
                     {
-                        Console.ForegroundColor = ConsoleColor.Gray;
+                        if (word[i] == letter[0] && Console.ForegroundColor == ConsoleColor.Red)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Gray;
+                        }
+                        else if (word[i] == letter[0] && Console.ForegroundColor == ConsoleColor.Gray)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
+                        Console.Write(word[i]);
                     }
-                    else if (word[i] == letter[0] && Console.ForegroundColor == ConsoleColor.Gray)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                    }
-                    Console.Write(word[i]);
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
 
             //**************************LOOPS**************************
@@ -412,31 +471,45 @@ namespace ConsoleApp1
 
             void TimesTable()
             {
-                Console.WriteLine("Write a number");
-                int number = Int32.Parse(Console.ReadLine());
-                Console.Clear();
-
-                for (int i = 1; i <= 10; i++)
+                try
                 {
-                    Console.WriteLine(number * i);
+                    Console.WriteLine("Write a number");
+                    int number = Int32.Parse(Console.ReadLine());
+                    Console.Clear();
+
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        Console.WriteLine(number * i);
+                    }
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
 
             void SumBetweenOneAndInput()
             {
-                Console.WriteLine("Write a number");
-                int number = Int32.Parse(Console.ReadLine());
-                int sum = 0;
-
-                Console.Clear();
-
-                for (int i = 0; i <= number; i++)
+                try
                 {
-                    sum += i;
+                    Console.WriteLine("Write a number");
+                    int number = Int32.Parse(Console.ReadLine());
+                    int sum = 0;
+
+                    Console.Clear();
+
+                    for (int i = 0; i <= number; i++)
+                    {
+                        sum += i;
+                    }
+                    Console.WriteLine(sum);
+                    Console.ReadLine();
                 }
-                Console.WriteLine(sum);
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
 
             void Double64Times()
@@ -455,73 +528,94 @@ namespace ConsoleApp1
             //Print box based on input dimensions
             void PrintBox()
             {
-                Console.WriteLine("Assign width");
-                int width = Int32.Parse(Console.ReadLine());
-
-                Console.WriteLine("Assign height");
-                int height = Int32.Parse(Console.ReadLine());
-
-                for (int i = 0; i < height; i++)
+                try
                 {
-                    for (int j = 0; j < width; j++)
+                    Console.WriteLine("Assign width");
+                    int width = Int32.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Assign height");
+                    int height = Int32.Parse(Console.ReadLine());
+
+                    for (int i = 0; i < height; i++)
                     {
-                        Console.Write("X");
+                        for (int j = 0; j < width; j++)
+                        {
+                            Console.Write("X");
+                        }
+                        Console.WriteLine();
                     }
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
 
             void PrintBoxAlternatingCharacters()
             {
-                Console.WriteLine("Assign width");
-                int width = Int32.Parse(Console.ReadLine());
-
-                Console.WriteLine("Assign height");
-                int height = Int32.Parse(Console.ReadLine());
-
-                for (int i = 0; i < height; i++)
+                try
                 {
-                    for (int j = 0; j < width; j++)
+                    Console.WriteLine("Assign width");
+                    int width = Int32.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Assign height");
+                    int height = Int32.Parse(Console.ReadLine());
+
+                    for (int i = 0; i < height; i++)
                     {
-                        if (j % 2 == 0)
+                        for (int j = 0; j < width; j++)
                         {
-                            Console.Write("X");
+                            if (j % 2 == 0)
+                            {
+                                Console.Write("X");
+                            }
+                            else
+                            {
+                                Console.Write("O");
+                            }
                         }
-                        else
-                        {
-                            Console.Write("O");
-                        }
+                        Console.WriteLine();
                     }
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
 
             void PrintHollowBox()
             {
-                Console.WriteLine("Assign width");
-                int width = Int32.Parse(Console.ReadLine());
-
-                Console.WriteLine("Assign height");
-                int height = Int32.Parse(Console.ReadLine());
-
-                for (int i = 0; i < height; i++)
+                try
                 {
-                    for (int j = 0; j < width; j++)
+                    Console.WriteLine("Assign width");
+                    int width = Int32.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Assign height");
+                    int height = Int32.Parse(Console.ReadLine());
+
+                    for (int i = 0; i < height; i++)
                     {
-                        if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
+                        for (int j = 0; j < width; j++)
                         {
-                            Console.Write("X");
+                            if (i == 0 || i == height - 1 || j == 0 || j == width - 1)
+                            {
+                                Console.Write("X");
+                            }
+                            else
+                            {
+                                Console.Write(" ");
+                            }
                         }
-                        else
-                        {
-                            Console.Write(" ");
-                        }
+                        Console.WriteLine();
                     }
-                    Console.WriteLine();
+                    Console.ReadLine();
                 }
-                Console.ReadLine();
+                catch
+                {
+
+                }
             }
 
             void NumberPyramid()
@@ -653,79 +747,86 @@ namespace ConsoleApp1
 
                 while (true)
                 {
-                    int computerChoiceIndex = rand.Next(0, 3);
-
-                    Console.Clear();
-                    Console.WriteLine("Write your choice: rock, paper or scissors.\r\nPress enter without typing to exit");
-                    string playerChoice = Console.ReadLine().ToLower();
-                    Console.Clear();
-
-                    if (playerChoice == "")
+                    try
                     {
-                        break;
-                    }
-                    else if (playerChoice == "rock".ToLower())
-                    {
-                        if (computerChoiceIndex == 0)
+                        int computerChoiceIndex = rand.Next(0, 3);
+
+                        Console.Clear();
+                        Console.WriteLine("Write your choice: rock, paper or scissors.\r\nPress enter without typing to exit");
+                        string playerChoice = Console.ReadLine().ToLower();
+                        Console.Clear();
+
+                        if (playerChoice == "")
                         {
-                            draws += 1;
-                            Console.WriteLine("Computer chose rock. Draw");
+                            break;
                         }
-                        else if (computerChoiceIndex == 1)
+                        else if (playerChoice == "rock".ToLower())
                         {
-                            playerLosses += 1;
-                            Console.WriteLine("Computer chose paper. You lost");
+                            if (computerChoiceIndex == 0)
+                            {
+                                draws += 1;
+                                Console.WriteLine("Computer chose rock. Draw");
+                            }
+                            else if (computerChoiceIndex == 1)
+                            {
+                                playerLosses += 1;
+                                Console.WriteLine("Computer chose paper. You lost");
+                            }
+                            else if (computerChoiceIndex == 2)
+                            {
+                                playerWins += 1;
+                                Console.WriteLine("Computer chose scissors, You won");
+                            }
                         }
-                        else if (computerChoiceIndex == 2)
+                        else if (playerChoice == "paper".ToLower())
                         {
-                            playerWins += 1;
-                            Console.WriteLine("Computer chose scissors, You won");
+                            if (computerChoiceIndex == 0)
+                            {
+                                playerWins += 1;
+                                Console.WriteLine("Computer chose rock, You won");
+                            }
+                            else if (computerChoiceIndex == 1)
+                            {
+                                draws += 1;
+                                Console.WriteLine("Computer chose paper. Draw");
+                            }
+                            else if (computerChoiceIndex == 2)
+                            {
+                                playerLosses += 1;
+                                Console.WriteLine("Computer chose scissors, You lost");
+                            }
                         }
-                    }
-                    else if (playerChoice == "paper".ToLower())
-                    {
-                        if (computerChoiceIndex == 0)
+                        else if (playerChoice == "scissors".ToLower())
                         {
-                            playerWins += 1;
-                            Console.WriteLine("Computer chose rock, You won");
-                        }
-                        else if (computerChoiceIndex == 1)
-                        {
-                            draws += 1;
-                            Console.WriteLine("Computer chose paper. Draw");
-                        }
-                        else if (computerChoiceIndex == 2)
-                        {
-                            playerLosses += 1;
-                            Console.WriteLine("Computer chose scissors, You lost");
-                        }
-                    }
-                    else if (playerChoice == "scissors".ToLower())
-                    {
-                        if (computerChoiceIndex == 0)
-                        {
-                            playerLosses += 1;
-                            Console.WriteLine("Computer chose rock, You lost");
+                            if (computerChoiceIndex == 0)
+                            {
+                                playerLosses += 1;
+                                Console.WriteLine("Computer chose rock, You lost");
+                            }
+
+                            else if (computerChoiceIndex == 1)
+                            {
+                                playerWins += 1;
+                                Console.WriteLine("Computer chose paper. You won");
+                            }
+
+                            else if (computerChoiceIndex == 2)
+                            {
+                                draws += 1;
+                                Console.WriteLine("Computer chose scissors. Draw");
+                            }
                         }
 
-                        else if (computerChoiceIndex == 1)
-                        {
-                            playerWins += 1;
-                            Console.WriteLine("Computer chose paper. You won");
-                        }
-
-                        else if (computerChoiceIndex == 2)
-                        {
-                            draws += 1;
-                            Console.WriteLine("Computer chose scissors. Draw");
-                        }
+                        Console.WriteLine(playerWins + " player wins,\r\n"
+                                    + playerLosses + " player losses\r\n"
+                                    + draws + " draws\r\n" +
+                                    "press enter to continue");
+                        Console.ReadLine();
                     }
+                    catch
+                    {
 
-                    Console.WriteLine(playerWins + " player wins,\r\n"
-                                + playerLosses + " player losses\r\n"
-                                + draws + " draws\r\n" +
-                                "press enter to continue");
-                    Console.ReadLine();
+                    }
                 }
                 Console.ReadLine();
             }
