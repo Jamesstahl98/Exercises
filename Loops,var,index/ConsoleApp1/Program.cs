@@ -8,8 +8,10 @@ namespace ConsoleApp1
     {
         static void Main()
         {
+            Calculator();
+            Console.ReadLine();
+
             //**************************VARIABLES**************************
-            //Greet user
             void GreetUser()
             {
                 Console.WriteLine("Write your name");
@@ -18,24 +20,38 @@ namespace ConsoleApp1
                 Console.ReadLine();
             }
 
-            //Multiply 2 numbers
             void MultiplyTwoNumbers()
             {
-                try
+                int parseResult;
+                int firstNumber;
+                int secondNumber;
+
+                Console.WriteLine("Write a number");
+                string input = Console.ReadLine();
+                bool success = Int32.TryParse(input, out parseResult);
+                if(success)
                 {
-                    Console.WriteLine("Write a number");
-                    int firstNumber = Int32.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Write another number");
-                    int secondNumber = Int32.Parse(Console.ReadLine());
-
-                    Console.WriteLine($"{firstNumber} times {secondNumber} is {firstNumber * secondNumber}");
-                    Console.ReadLine();
+                    firstNumber = parseResult;
                 }
-                catch
+                else
                 {
-
+                    return;
                 }
+
+                Console.WriteLine("Write another number");
+                input = Console.ReadLine();
+                success = Int32.TryParse(input, out parseResult);
+                if (success)
+                {
+                     secondNumber = parseResult;
+                }
+                else
+                {
+                    return;
+                }
+
+                Console.WriteLine($"{firstNumber} times {secondNumber} is {firstNumber * secondNumber}");
+                Console.ReadLine();
             }
 
             //Verify Password
@@ -59,89 +75,122 @@ namespace ConsoleApp1
             //Check if number is higher than, lower than or equal to 100
             void HigherOrLowerThan100()
             {
-                try
-                {
-                    Console.WriteLine("Write a number");
-                    int userNumber = Int32.Parse(Console.ReadLine());
-                    if (userNumber < 100)
-                    {
-                        Console.WriteLine("Your number is lower than 100");
-                    }
-                    else if (userNumber > 100)
-                    {
-                        Console.WriteLine("Your number is higher than 100");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Your number is 100");
-                    }
-                    Console.ReadLine();
-                }
-                catch
-                {
+                int number;
+                int parseResult;
 
+                Console.WriteLine("Write a number");
+                string input = Console.ReadLine();
+                bool success = Int32.TryParse(input, out parseResult);
+                if(success)
+                {
+                    number = parseResult;
                 }
+                else
+                {
+                    return;
+                }
+
+                if (number < 100)
+                {
+                    Console.WriteLine("Your number is lower than 100");
+                }
+                else if (number > 100)
+                {
+                    Console.WriteLine("Your number is higher than 100");
+                }
+                else
+                {
+                    Console.WriteLine("Your number is 100");
+                }
+                Console.ReadLine();
             }
 
             //Double and half user input
             void DoubleAndHalf()
             {
-                try
-                {
-                    Console.WriteLine("Write a number");
-                    int num = Int32.Parse(Console.ReadLine());
+                float number;
+                float parseResult;
 
-                    Console.WriteLine($"{num * 2} is double your number. {num / 2} is half your number");
-                    Console.ReadLine();
-                }
-                catch
+                Console.WriteLine("Write a number");
+                string input = Console.ReadLine();
+                bool success = Single.TryParse(input, out parseResult);
+                if (success)
                 {
-
+                    number = parseResult;
                 }
+                else
+                {
+                    return;
+                }
+
+                Console.WriteLine($"{number * 2} is double your number. {number / 2} is half your number");
+                Console.ReadLine();
             }
 
             //Calculator
             void Calculator()
             {
-                try
+                double firstNumber;
+                double secondNumber;
+                double sum = 0;
+                double parseResult;
+
+                Console.WriteLine("Write first number");
+                string input = Console.ReadLine();
+                bool success = Double.TryParse(input, out parseResult);
+                if (success)
                 {
-                    double sum = 0;
-
-                    Console.WriteLine("Write first number");
-                    double firstNum = Int32.Parse(Console.ReadLine());
-
-                    Console.WriteLine("Write operator");
-                    string arithmeticOperator = Console.ReadLine();
-
-                    Console.WriteLine("Write second number");
-                    double secondNum = Int32.Parse(Console.ReadLine());
-
-                    switch (arithmeticOperator)
-                    {
-                        case "+":
-                            sum = firstNum + secondNum;
-                            break;
-
-                        case "-":
-                            sum = firstNum - secondNum;
-                            break;
-
-                        case "*":
-                            sum = firstNum * secondNum;
-                            break;
-
-                        case "/":
-                            sum = firstNum / secondNum;
-                            break;
-
-                    }
-                    Console.WriteLine(sum);
-                    Console.ReadLine();
+                    firstNumber = parseResult;
                 }
-                catch
+                else
                 {
+                    return;
+                }
+
+                Console.WriteLine("Write operator");
+                string arithmeticOperator = Console.ReadLine();
+
+                Console.WriteLine("Write second number");
+                input = Console.ReadLine();
+                success = Double.TryParse(input, out parseResult);
+                if (success)
+                {
+                    secondNumber = parseResult;
+                }
+                else
+                {
+                    return;
+                }
+
+                if(arithmeticOperator != "+"
+                    && arithmeticOperator != "-"
+                    && arithmeticOperator != "*"
+                    && arithmeticOperator != "/")
+                {
+                    return;
+                }
+
+                switch (arithmeticOperator)
+                {
+                    case "+":
+                        sum = firstNumber + secondNumber;
+                        break;
+
+                    case "-":
+                        sum = firstNumber - secondNumber;
+                        break;
+
+                    case "*":
+                        sum = firstNumber * secondNumber;
+                        break;
+
+                    case "/":
+                        sum = firstNumber / secondNumber;
+                        break;
 
                 }
+                Console.WriteLine(sum);
+                Console.ReadLine();
                 
             }
 
@@ -206,32 +255,25 @@ namespace ConsoleApp1
             //Number to words
             void NumbersToWords()
             {
-                try
-                {
-                    string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+                string[] numbers = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
-                    while (true)
+                while (true)
+                {
+                    Console.Write("Write a number: ");
+                    int num = Int32.Parse(Console.ReadLine());
+
+                    if (num < numbers.Length + 1 && num > 0)
                     {
-                        Console.Write("Write a number: ");
-                        int num = Int32.Parse(Console.ReadLine());
-
-                        if (num < numbers.Length + 1 && num > 0)
-                        {
-                            Console.WriteLine(numbers[num - 1]);
-                            break;
-                        }
-
-                        else
-                        {
-                            Console.WriteLine("number is too high or too low, try again.");
-                        }
+                        Console.WriteLine(numbers[num - 1]);
+                        break;
                     }
-                    Console.ReadLine();
-                }
-                catch
-                {
 
+                    else
+                    {
+                        Console.WriteLine("number is too high or too low, try again.");
+                    }
                 }
+                Console.ReadLine();
             }
             //Reverse string
             void ReverseString()
