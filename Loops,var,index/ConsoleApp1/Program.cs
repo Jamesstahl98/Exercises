@@ -8,7 +8,6 @@ namespace ConsoleApp1
     {
         static void Main()
         {
-            MultiplyTwoNumbers();
             //**************************VARIABLES**************************
             //Greet user
             void GreetUser()
@@ -149,35 +148,30 @@ namespace ConsoleApp1
             //Sum and average value
             void SumAndAverage()
             {
-                try
-                {
-                    List<int> numbers = new List<int>();
-                    float sum = 0;
-                    while (true)
-                    {
-                        Console.WriteLine("Write a number or press enter to exit");
-                        try
-                        {
-                            int newNumber = Int32.Parse(Console.ReadLine());
-                            numbers.Add(newNumber);
-                            sum += newNumber;
-                        }
-                        catch
-                        {
-                            break;
-                        }
-                        Console.Clear();
-                        Console.WriteLine($"The sum of your numbers is {sum}");
-                    }
-                    Console.WriteLine($"The Average value of your numbers is {sum / numbers.Count}");
-                    Console.ReadLine();
-                }
-                catch
-                {
 
+                List<int> numbers = new List<int>();
+                float sum = 0;
+                while (true)
+                {
+                    Console.WriteLine("Write a number or press enter to exit");
+                    try
+                    {
+                        int newNumber = Int32.Parse(Console.ReadLine());
+                        numbers.Add(newNumber);
+                        sum += newNumber;
+                    }
+                    catch
+                    {
+                        break;
+                    }
+                    Console.Clear();
+                    Console.WriteLine($"The sum of your numbers is {sum}");
                 }
-                
-            }
+                if(float.IsNaN(sum / numbers.Count)) { return; }
+                Console.WriteLine($"The Average value of your numbers is {sum / numbers.Count}");
+                Console.ReadLine();
+            }        
+
 
             //**************************INDEXING**************************
             //Print each character in name
