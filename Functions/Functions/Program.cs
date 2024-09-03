@@ -7,7 +7,7 @@ namespace Functions
     {
         static void Main(string[] args)
         {
-            string numberString = UShortToString(13552);
+            string numberString = GetStringFromUShort(13552);
             Console.WriteLine(numberString);
             //Random rand = new Random();
             //int numberOfRectangles = rand.Next(1, 11);
@@ -95,11 +95,6 @@ namespace Functions
             }
 
             return arrayToReturn;
-        }
-
-        static string GetTextFromUShort(ushort number)
-        {
-            return "";
         }
 
         static int[] GetIndexesOf(string text, char c)
@@ -216,7 +211,7 @@ namespace Functions
             Console.SetCursorPosition(width, height);
         }
 
-        static string UShortToString(ushort number)
+        static string GetStringFromUShort(ushort number)
         {
             string[] digitStrings = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
             string[] tenToNineteenStrings = { "", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
