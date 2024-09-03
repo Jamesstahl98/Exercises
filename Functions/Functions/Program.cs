@@ -6,12 +6,11 @@ namespace Functions
     {
         static void Main(string[] args)
         {
-            string[] stringsOfNumbers = GetTextFromNumbers(6543);
-            for (int i = 0; i < stringsOfNumbers.Length; i++)
+            var indexes = GetIndexesOf("Hello world!", 'o');
+            for (int i = 0; i < indexes.Length; i++)
             {
-                Console.WriteLine(stringsOfNumbers[i]);
+                Console.WriteLine(indexes[i]);
             }
-            Console.ReadLine();
         }
         static void PrintName(string firstName, string lastName)
         {
@@ -74,10 +73,10 @@ namespace Functions
             return sum / numbers.Length;
         }
 
-        static string[] GetTextFromNumbers(int number)
+        static string[] GetTextFromInts(int number)
         {
-            string[] digitStrings = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            int[] digits = number.ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x)).ToArray();
+            string[] digitStrings = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            int[] digits = GetArrayOfInts(number);
             string[] arrayToReturn = new string[digits.Length];
 
             for (int i = 0; i < arrayToReturn.Length; i++)
@@ -86,6 +85,54 @@ namespace Functions
             }
 
             return arrayToReturn;
+        }
+
+        static string GetTextFromUShort(ushort number)
+        {
+            return "";
+        }
+
+        static int[] GetIndexesOf(string text, char c)
+        {
+            char[] charsInText = text.ToCharArray();
+            List<int> indexesOfChar = new List<int>();
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (charsInText[i] == c)
+                {
+                    indexesOfChar.Add(i);
+                }
+            }
+
+            int[] indexesToReturn = indexesOfChar.ToArray();
+
+            return indexesToReturn;
+        }
+
+        static int[] GetArrayOfInts(int number)
+        {
+            int[] digits = number.ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x)).ToArray();
+            return digits;
+        }
+
+        static int ThrowDice(int sides = 6)
+        {
+            Random rand = new Random();
+
+            int result = rand.Next(1, sides);
+            return result;
+        }
+
+        static int ThrowMultipleDice(int number, int sides = 6)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < number; i++)
+            {
+                sum += ThrowDice(sides);
+            }
+            return sum;
         }
     }
 }
