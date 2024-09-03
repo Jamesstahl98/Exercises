@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Functions
 {
@@ -6,6 +7,7 @@ namespace Functions
     {
         static void Main(string[] args)
         {
+            MoveCharacter();
             //Random rand = new Random();
             //int numberOfRectangles = rand.Next(1, 11);
             //for (int i = 0; i < numberOfRectangles; i++)
@@ -14,7 +16,10 @@ namespace Functions
             //        rand.Next(3, 10), 
             //        rand.Next(0, Console.WindowWidth), 
             //        rand.Next(0, Console.WindowHeight));
+            //Thread.Sleep(200);
             //}
+
+
         }
         static void PrintName(string firstName, string lastName)
         {
@@ -141,7 +146,6 @@ namespace Functions
 
         static void DrawBox(int width, int height, int left, int top)
         {
-            Thread.Sleep(200);
             for (int i = 0; i < height; i++)
             {
                 for (int j = 0; j < width; j++)
@@ -158,6 +162,57 @@ namespace Functions
                 }
                 Console.WriteLine();
             }
+        }
+
+        static void MoveCharacter()
+        {
+            ConsoleKeyInfo cki;
+
+            int width = 9;
+            int height = 9;
+
+            int posX = width / 2;
+            int posY = height / 2;
+
+            DrawBox(width, height, 0, 0);
+            Console.SetCursorPosition(posX, posY);
+            Console.Write("@");
+            do
+            {
+                while (Console.KeyAvailable == false)
+                {
+                    Thread.Sleep(250);
+                }
+
+                cki = Console.ReadKey(true);
+                Console.SetCursorPosition(posX, posY);
+                if (cki.Key == ConsoleKey.LeftArrow && posX > 1)
+                {
+                    Console.Write("-");
+                    posX -= 1;
+                }
+                else if (cki.Key == ConsoleKey.RightArrow && posX < width - 2)
+                {
+                    Console.Write("-");
+                    posX += 1;
+                }
+                else if (cki.Key == ConsoleKey.UpArrow && posY > 1)
+                {
+                    Console.Write("-");
+                    posY -= 1;
+                }
+                else if (cki.Key == ConsoleKey.DownArrow && posY < height - 2)
+                {
+                    Console.SetCursorPosition(posX, posY);
+                    Console.Write("-");
+                    posY += 1;
+                }
+
+                Console.SetCursorPosition(posX, posY);
+                Console.Write("@");
+            } while (cki.Key != ConsoleKey.Enter);
+            
+            Console.SetCursorPosition(width, height);
         }
     }
 }
