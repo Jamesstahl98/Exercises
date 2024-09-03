@@ -7,7 +7,8 @@ namespace Functions
     {
         static void Main(string[] args)
         {
-            MoveCharacter();
+            string numberString = UShortToString(13552);
+            Console.WriteLine(numberString);
             //Random rand = new Random();
             //int numberOfRectangles = rand.Next(1, 11);
             //for (int i = 0; i < numberOfRectangles; i++)
@@ -213,6 +214,116 @@ namespace Functions
             } while (cki.Key != ConsoleKey.Enter);
             
             Console.SetCursorPosition(width, height);
+        }
+
+        static string UShortToString(ushort number)
+        {
+            string[] digitStrings = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            string[] tenToNineteenStrings = { "", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+            string[] DigitTimesTenStrings = { "", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+            int[] numberIntArr = GetArrayOfInts(number);
+            List<String> stringList = new List<String>();
+
+            for (int i = 0; i < numberIntArr.Length; i++)
+            {
+                stringList.Add(digitStrings[numberIntArr[i]]);
+                if (numberIntArr.Length == 5)
+                {
+                    switch(i)
+                    {
+                        case 0:
+                            stringList[i] = DigitTimesTenStrings[numberIntArr[i]];
+                            break;
+                        case 1:
+                            if (numberIntArr[i - 1] == 1 && numberIntArr[i] != 0)
+                            {
+                                stringList[i] = tenToNineteenStrings[numberIntArr[i]];
+                                stringList[i-1] = "";
+                            }
+                            stringList[i] += " thousand";
+                            break;
+                        case 2:
+                            if (numberIntArr[i] != 0)
+                                stringList[i] += " hundred";
+                            break;
+                        case 3:
+                            stringList[i] = DigitTimesTenStrings[numberIntArr[i]];
+                            break;
+                        case 4:
+                            if (numberIntArr[i - 1] == 1 && numberIntArr[i] != 0)
+                            {
+                                stringList[i] = tenToNineteenStrings[numberIntArr[i]];
+                                stringList[i - 1] = "";
+                            }
+                            break;
+                    }
+                }
+
+                if (numberIntArr.Length == 4)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            stringList[i] += "thousand";
+                            break;
+                        case 1:
+                            if (numberIntArr[i] != 0)
+                                stringList[i] += " hundred";
+                            break;
+                        case 2:
+                            stringList[i] = DigitTimesTenStrings[numberIntArr[i]];
+                            break;
+                        case 3:
+                            if (numberIntArr[i - 1] == 1 && numberIntArr[i] != 0)
+                            {
+                                stringList[i] = tenToNineteenStrings[numberIntArr[i]];
+                                stringList[i - 1] = "";
+                            }
+                            break;
+                    }
+                }
+
+                if (numberIntArr.Length == 3)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            if (numberIntArr[i] != 0)
+                                stringList[i] += " hundred";
+                            break;
+                        case 1:
+                            stringList[i] = DigitTimesTenStrings[numberIntArr[i]];
+                            break;
+                        case 2:
+                            if (numberIntArr[i - 1] == 1 && numberIntArr[i] != 0)
+                            {
+                                stringList[i] = tenToNineteenStrings[numberIntArr[i]];
+                                stringList[i - 1] = "";
+                            }
+                            break;
+                    }
+                }
+
+                if (numberIntArr.Length == 2)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            stringList[i] = DigitTimesTenStrings[numberIntArr[i]];
+                            break;
+                        case 1:
+                            if (numberIntArr[i - 1] == 1 && numberIntArr[i] != 0)
+                            {
+                                stringList[i] = tenToNineteenStrings[numberIntArr[i]];
+                                stringList[i - 1] = "";
+                            }
+                            break;
+                    }
+                }
+            }
+
+            stringList = stringList.Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().ToList();
+            return string.Join(" ", stringList);
         }
     }
 }
