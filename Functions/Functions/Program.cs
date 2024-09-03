@@ -6,11 +6,15 @@ namespace Functions
     {
         static void Main(string[] args)
         {
-            var indexes = GetIndexesOf("Hello world!", 'o');
-            for (int i = 0; i < indexes.Length; i++)
-            {
-                Console.WriteLine(indexes[i]);
-            }
+            //Random rand = new Random();
+            //int numberOfRectangles = rand.Next(1, 11);
+            //for (int i = 0; i < numberOfRectangles; i++)
+            //{
+            //    DrawBox(rand.Next(3, 10), 
+            //        rand.Next(3, 10), 
+            //        rand.Next(0, Console.WindowWidth), 
+            //        rand.Next(0, Console.WindowHeight));
+            //}
         }
         static void PrintName(string firstName, string lastName)
         {
@@ -133,6 +137,27 @@ namespace Functions
                 sum += ThrowDice(sides);
             }
             return sum;
+        }
+
+        static void DrawBox(int width, int height, int left, int top)
+        {
+            Thread.Sleep(200);
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    Console.SetCursorPosition(left + j, top + i);
+                    if (i == 0 || i == height-1 || j == 0 || j == width-1)
+                    {
+                        Console.Write("#");
+                    }
+                    else
+                    {
+                        Console.Write("-");
+                    }
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
