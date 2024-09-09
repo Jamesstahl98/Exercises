@@ -114,7 +114,7 @@
             }
         }
 
-        static void PrintEachCharacterSpecifiedWordAsGreen(string input = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?", string greenWord = "chuck")
+        static void PrintSpecifiedWordAsGreen(string input = "How much wood would a woodchuck chuck if a woodchuck could chuck wood?", string greenWord = "chuck")
         {
             for (int i = 0; i < input.Length; i++)
             {
