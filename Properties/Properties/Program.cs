@@ -43,7 +43,17 @@ while (true)
     for (int i = 0; i < raceCars.Length; i++)
     {
         raceCars[i].DriveForOneHour();
-        Console.WriteLine(GetGraph(raceCars[i], i));
+        char[] graphCharArr = GetGraph(raceCars[i], i).ToCharArray();
+        for (int j = 0; j < graphCharArr.Length; j++)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+            if (graphCharArr[j] == 'x')
+            {
+                Console.ForegroundColor = raceCars[i].Color;
+            }
+            Console.Write(graphCharArr[j]);
+        }
+        Console.WriteLine();
     }
 }
 
@@ -55,13 +65,13 @@ static string GetGraph(RaceCar raceCar, int carIndex)
 
     for (int i = 0; i < 18; i++)
     {
-        if(raceCar.Distance < (distancePerSegment * i))
+        if(raceCar.Distance > (distancePerSegment * i) && raceCar.Distance < (distancePerSegment * (i+1)))
         {
-            returnGraph += "-";
+            returnGraph += "x";
         }
         else
         {
-            returnGraph += "+";
+            returnGraph += "-";
         }
     }
 
