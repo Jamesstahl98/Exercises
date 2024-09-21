@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Text;
 
 Person person = new Person();
 person.FirstName = "Lars";
@@ -25,14 +26,48 @@ BlueAndRed blueAndRed = new BlueAndRed();
 blueAndRed.Blue = 47.5;
 Console.WriteLine($"blue: {blueAndRed.Blue}, red: {blueAndRed.Red}");
 
-RaceCar[] raceCars = new RaceCar[1000];
+RaceCar[] raceCars = new RaceCar[9];
 
-for (int i = 0; i < 1000; i++)
+for (int i = 0; i < raceCars.Length; i++)
 {
     raceCars[i] = new RaceCar();
 }
 
 Console.WriteLine(RaceCar.GetCombinedLengthOfGreenCars(raceCars));
+
+while (true)
+{
+    Thread.Sleep(1000);
+    Console.Clear();
+
+    for (int i = 0; i < raceCars.Length; i++)
+    {
+        raceCars[i].DriveForOneHour();
+        Console.WriteLine(GetGraph(raceCars[i], i));
+    }
+}
+
+static string GetGraph(RaceCar raceCar, int carIndex)
+{
+    Console.ForegroundColor = raceCar.Color;
+    string returnGraph = $"Race Car {carIndex+1}: |";
+    decimal distancePerSegment = 10000 / 18;
+
+    for (int i = 0; i < 18; i++)
+    {
+        if(raceCar.Distance < (distancePerSegment * i))
+        {
+            returnGraph += "-";
+        }
+        else
+        {
+            returnGraph += "+";
+        }
+    }
+
+    returnGraph += "|";
+    return returnGraph;
+}
 
 class Person
 {
@@ -75,8 +110,22 @@ class StepCounter
 class RaceCar
 {
     static Random rand = new Random();
-    private int _length = rand.Next(3, 6);
-    private ConsoleColor _color = GetRandomColor();
+    private int _length;
+    private ConsoleColor _color;
+    private int _speed;
+    private int _distance = 0;
+
+    public int Distance
+    {
+        get { return _distance; }
+        set { _distance = value; }
+    }
+
+    public int Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
 
     public int Length
     {
@@ -89,11 +138,41 @@ class RaceCar
         get { return _color; }
         set { _color = value; }
     }
-
+    
     private static ConsoleColor GetRandomColor()
     {
         var consoleColors = Enum.GetValues(typeof(ConsoleColor));
-        return (ConsoleColor)consoleColors.GetValue(rand.Next(consoleColors.Length));
+        return (ConsoleColor)consoleColors.GetValue(rand.Next(1, consoleColors.Length));
+    }
+
+    public RaceCar()
+    {
+        Length = rand.Next(3, 6);
+        Speed = rand.Next(60, 241);
+        Color = GetRandomColor();
+    }
+
+    public RaceCar(ConsoleColor color)
+    {
+        Length = rand.Next(3, 6);
+        Speed = rand.Next(60, 241);
+        Color = color;
+    }
+
+    public void DriveForOneHour()
+    {
+        Distance += Speed;
+    }
+
+    public static Car[] InstantiateAndGetNewCars(Car car)
+    {
+        Car[] cars = new Car[10];
+
+        for (int i = 0; i < cars.Length; i++)
+        {
+            cars[i] = new Car(car.Color);
+        }
+        return cars;
     }
 
     public static int GetCombinedLengthOfGreenCars(RaceCar[] racerCars)
