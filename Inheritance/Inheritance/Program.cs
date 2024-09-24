@@ -3,7 +3,7 @@ using System.Drawing;
 
 Random rand = new Random();
 
-/*Console.WriteLine(new Car(Brand.Volvo, "V70", Color.Blue));
+Console.WriteLine(new Car(Brand.Volvo, "V70", Color.Blue));
 Circle circle = new Circle(5);
 Console.WriteLine(circle);
 Console.WriteLine($"Area: {circle.Area:f2}");
@@ -14,7 +14,7 @@ Square square = new Square(5);
 Console.WriteLine(square);
 Console.WriteLine($"Area: {square.Area:f2}");
 Console.WriteLine($"Circumference: {square.Circumference:f2}");
-square.Print();*/
+square.Print();
 
 Shape[] shapes = new Shape[10];
 
@@ -51,14 +51,14 @@ public abstract class Shape
         {
             Console.ForegroundColor = color;
             Square square = (Square)this;
-            Console.WriteLine($"A square with side {square.SideLength} has an area of {Area} and a circumference of {Circumference}.");
+            Console.WriteLine($"A square with side {square.SideLength:f} has an area of {Area:f} and a circumference of {Circumference:f}.");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
         else if(this is Circle)
         {
             Console.ForegroundColor = color;
             Circle circle = (Circle)this;
-            Console.WriteLine($"A circle with radius {circle.Radius} has an area of {Area} and a circumference of {Circumference}.");
+            Console.WriteLine($"A circle with radius {circle.Radius:f} has an area of {Area:f} and a circumference of {Circumference:f}.");
             Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
@@ -93,9 +93,9 @@ class Square : Shape
 
     public Square(double sideLength)
     {
-        SideLength = Math.Round(sideLength, 2);
-        Area = Math.Round(sideLength * sideLength, 2);
-        Circumference = Math.Round(sideLength * 4, 2);
+        SideLength = sideLength;
+        Area = sideLength * sideLength;
+        Circumference = sideLength * 4;
     }
 
     public override string ToString()
@@ -116,9 +116,9 @@ class Circle : Shape
     }
     public Circle(double radius)
     {
-        Radius = Math.Round(radius, 2);
-        Circumference = Math.Round(Math.PI * 2 * Radius, 2);
-        Area = Math.Round((Radius * Radius) * Math.PI, 2);
+        Radius = radius;
+        Circumference = Math.PI * 2 * Radius;
+        Area = (Radius * Radius) * Math.PI;
     }
 
     public override string ToString()
@@ -140,9 +140,9 @@ class Vehicle
     public Vehicle()
     {
         Size size = new Size((rand.NextDouble()*2)+2, (rand.NextDouble() * 1.5) + 1, (rand.NextDouble()*0.5) + 1);
-        Length = Math.Round(size.Length, 1);
-        Height = Math.Round(size.Height, 1);
-        Width = Math.Round(size.Width, 1);
+        Length = size.Length;
+        Height = size.Height;
+        Width = size.Width;
     }
 
     public override string ToString()
@@ -171,7 +171,7 @@ class Car : Vehicle
 
     public override string ToString()
     {
-        return $"A {Color} {Length} meter long {Model} from {Brand}";
+        return $"A {Color} {Length:f} meter long {Model} from {Brand}";
     }
 }
 
