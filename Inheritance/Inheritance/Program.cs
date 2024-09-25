@@ -132,19 +132,14 @@ class Circle : Shape
 class Vehicle
 {
     Random rand = new Random();
-    public double Length { get; set; }
-    public double Height { get; set; }
-    public double Width { get; set; }
+    public Size Size { get; set; }
 
     public Brand Brand { get; set; }
     public Color Color { get; set; }
 
     public Vehicle()
     {
-        Size size = new Size((rand.NextDouble()*2)+2, (rand.NextDouble() * 1.5) + 1, (rand.NextDouble()*0.5) + 1);
-        Length = size.Length;
-        Height = size.Height;
-        Width = size.Width;
+        this.Size = new Size((rand.NextDouble()*2)+2, (rand.NextDouble() * 1.5) + 1, (rand.NextDouble()*0.5) + 1);
     }
 
     public override string ToString()
@@ -173,7 +168,7 @@ class Car : Vehicle
 
     public override string ToString()
     {
-        return $"A {Color} {Length:f} meter long {Model} from {Brand}";
+        return $"A {Color} {Size.Length:f} meter long {Model} from {Brand}";
     }
 }
 
