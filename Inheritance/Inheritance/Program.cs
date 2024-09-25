@@ -36,6 +36,8 @@ Shape.PrintAll(shapes);
 
 Shape.PrintCircles(shapes);
 
+Console.ReadLine();
+
 enum Brand { Toyota, Volvo, Kia, Ferrari, Ford }
 enum Color { Red, Green, Blue, Yellow, Purple }
 
@@ -134,8 +136,8 @@ class Vehicle
     public double Height { get; set; }
     public double Width { get; set; }
 
-    public string Brand { get; set; }
-    public string Color { get; set; }
+    public Brand Brand { get; set; }
+    public Color Color { get; set; }
 
     public Vehicle()
     {
@@ -157,16 +159,16 @@ class Car : Vehicle
 
     public Car()
     {
-        Brand = "Ford";
+        Brand = Brand.Ford;
         Model = "F150";
-        Color = "Red";
+        Color = Color.Red;
     }
 
     public Car(Brand brand, string model, Color color)
     {
         Model = model;
-        Brand = brand.ToString();
-        Color = color.ToString();
+        Brand = brand;
+        Color = color;
     }
 
     public override string ToString()
