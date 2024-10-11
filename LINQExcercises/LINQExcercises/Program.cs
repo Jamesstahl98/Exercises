@@ -1,7 +1,9 @@
-﻿var people = new[]
+﻿using System.Linq;
+
+var people = new[]
 {
-    new { FirstName = "Lars",       LastName = "Larsson",   Age = 25,   Height = 180,   Weight = 70 },
-    new { FirstName = "Sven",       LastName = "Svensson",  Age = 17,   Height = 175,   Weight = 65 },
+    new { FirstName = "Sven",       LastName = "Larsson",   Age = 25,   Height = 180,   Weight = 70 },
+    new { FirstName = "Lars",       LastName = "Larsson",   Age = 17,   Height = 175,   Weight = 65 },
     new { FirstName = "Bengt",      LastName = "Bengtsson", Age = 30,   Height = 191,   Weight = 90 },
     new { FirstName = "Sara",       LastName = "Andersson", Age = 32,   Height = 165,   Weight = 60 },
     new { FirstName = "Ulla",       LastName = "Johansson", Age = 68,   Height = 185,   Weight = 62 },
@@ -68,4 +70,36 @@ for (int i = 0; i < userNamesList.Count; i++)
 {
     Console.WriteLine($"{userNamesList[i].UserName} {userNamesList[i].Category}");
 }
+
+//***Excercise ten***
+people = people.OrderBy(p => p.Age).ToArray();
+for (int i = 0; i < people.Length; i++)
+{
+    Console.WriteLine(people[i].Age);
+}
+Console.WriteLine();
+
+//***Excercise eleven***
+people = people.OrderByDescending(p => p.Age).ToArray();
+for (int i = 0; i < people.Length; i++)
+{
+    Console.WriteLine(people[i].Age);
+}
+Console.WriteLine();
+
+//***Excercise eleven***
+people = people.OrderBy(p => p.LastName).ThenBy(p => p.FirstName).ToArray();
+for (int i = 0; i < people.Length; i++)
+{
+    Console.WriteLine($"{people[i].FirstName} {people[i].LastName}");
+}
+Console.WriteLine();
+
+//***Excercise twelve***
+var numbers = Enumerable.Range(1, 100_000_000_0);
+
+var divisibleNumbers = numbers.AsParallel().Where(n => n % 3 == 0 || n % 5 == 0);
+
+Console.WriteLine(divisibleNumbers.Last());
+
 Console.ReadLine();
