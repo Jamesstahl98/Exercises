@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLExcercise1", "XAMLExcercises\XAMLExcercise1.csproj", "{5B92C457-BB2E-4722-AC22-7B5B57F0C3C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLExcercise2", "XAMLExcercise2\XAMLExcercise2.csproj", "{5EA2280F-67C2-474A-A2EF-F4E2E782405B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLExcercise3", "XAMLExcercise3\XAMLExcercise3.csproj", "{9CE5F90E-D59E-48CD-9A6C-9CADFAE7267C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLExcercise4", "XAMLExcercise4\XAMLExcercise4.csproj", "{A7052553-1948-4235-9B18-0E3E2892882B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLExcercise5", "XAMLExcercise5\XAMLExcercise5.csproj", "{D24EDD03-ECC7-4680-AA81-4A7684687440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLExcercise6", "XAMLExcercise6\XAMLExcercise6.csproj", "{65F720B4-8D71-413F-9AA9-A1E9A5399534}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XAMLExcercise7", "XAMLExcercise7\XAMLExcercise7.csproj", "{92C4A803-5386-4520-83D4-61802FC102D7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5B92C457-BB2E-4722-AC22-7B5B57F0C3C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B92C457-BB2E-4722-AC22-7B5B57F0C3C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B92C457-BB2E-4722-AC22-7B5B57F0C3C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B92C457-BB2E-4722-AC22-7B5B57F0C3C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA2280F-67C2-474A-A2EF-F4E2E782405B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA2280F-67C2-474A-A2EF-F4E2E782405B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA2280F-67C2-474A-A2EF-F4E2E782405B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA2280F-67C2-474A-A2EF-F4E2E782405B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CE5F90E-D59E-48CD-9A6C-9CADFAE7267C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CE5F90E-D59E-48CD-9A6C-9CADFAE7267C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CE5F90E-D59E-48CD-9A6C-9CADFAE7267C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CE5F90E-D59E-48CD-9A6C-9CADFAE7267C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7052553-1948-4235-9B18-0E3E2892882B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7052553-1948-4235-9B18-0E3E2892882B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7052553-1948-4235-9B18-0E3E2892882B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7052553-1948-4235-9B18-0E3E2892882B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D24EDD03-ECC7-4680-AA81-4A7684687440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D24EDD03-ECC7-4680-AA81-4A7684687440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D24EDD03-ECC7-4680-AA81-4A7684687440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D24EDD03-ECC7-4680-AA81-4A7684687440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F720B4-8D71-413F-9AA9-A1E9A5399534}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F720B4-8D71-413F-9AA9-A1E9A5399534}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F720B4-8D71-413F-9AA9-A1E9A5399534}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F720B4-8D71-413F-9AA9-A1E9A5399534}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92C4A803-5386-4520-83D4-61802FC102D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92C4A803-5386-4520-83D4-61802FC102D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92C4A803-5386-4520-83D4-61802FC102D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92C4A803-5386-4520-83D4-61802FC102D7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC1E35EE-1453-46E3-89CF-A4A35A23353B}
+	EndGlobalSection
+EndGlobal
