@@ -7,7 +7,21 @@ public static class CustomProperties
             "FirstName",
             typeof(string),
             typeof(CustomProperties),
-            new PropertyMetadata("Default"));
+            new PropertyMetadata("new"));
+
+    public static readonly DependencyProperty LastName =
+        DependencyProperty.RegisterAttached(
+            "LastName",
+            typeof(string),
+            typeof(CustomProperties),
+            new PropertyMetadata(""));
+
+    public static readonly DependencyProperty Email =
+        DependencyProperty.RegisterAttached(
+            "Email",
+            typeof(string),
+            typeof(CustomProperties),
+            new PropertyMetadata(""));
 
     public static string GetFirstName(DependencyObject obj)
     {
@@ -19,13 +33,6 @@ public static class CustomProperties
         obj.SetValue(FirstName, value);
     }
 
-    public static readonly DependencyProperty LastName =
-        DependencyProperty.RegisterAttached(
-            "LastName",
-            typeof(string),
-            typeof(CustomProperties),
-            new PropertyMetadata("Default"));
-
     public static string GetLastName(DependencyObject obj)
     {
         return (string)obj.GetValue(LastName);
@@ -35,13 +42,6 @@ public static class CustomProperties
     {
         obj.SetValue(LastName, value);
     }
-
-    public static readonly DependencyProperty Email =
-        DependencyProperty.RegisterAttached(
-            "Email",
-            typeof(string),
-            typeof(CustomProperties),
-            new PropertyMetadata("Default"));
 
     public static string GetEmail(DependencyObject obj)
     {

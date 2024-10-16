@@ -18,9 +18,9 @@ namespace WPFControllerExercises.Views
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class WPFControllerExercise6 : Window
+    public partial class WPFControllerExercise6and7 : Window
     {
-        public WPFControllerExercise6()
+        public WPFControllerExercise6and7()
         {
             InitializeComponent();
             for (int i = 0; i < studentListBox.Items.Count; i++)
@@ -36,29 +36,54 @@ namespace WPFControllerExercises.Views
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(studentListBox.SelectedItem == null) { return; }
             firstNameTextBox.Text = CustomProperties.GetFirstName((ListBoxItem)studentListBox.SelectedItem);
             lastNameTextBox.Text = CustomProperties.GetLastName((ListBoxItem)studentListBox.SelectedItem);
             emailTextBox.Text = CustomProperties.GetEmail((ListBoxItem)studentListBox.SelectedItem);
+            removeButton.IsEnabled = true;
         }
 
         private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ListBoxItem selectedItem = (studentListBox.SelectedItem as ListBoxItem);
+            if (GetSelectedItem() == null) { return; }
+            ListBoxItem selectedItem = GetSelectedItem();
             CustomProperties.SetFirstName(selectedItem, firstNameTextBox.Text);
             selectedItem.Content = $"{CustomProperties.GetFirstName(selectedItem)} {CustomProperties.GetLastName(selectedItem)}";
         }
 
         private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ListBoxItem selectedItem = (studentListBox.SelectedItem as ListBoxItem);
+            if (GetSelectedItem() == null) { return; }
+            ListBoxItem selectedItem = GetSelectedItem();
             CustomProperties.SetLastName(selectedItem, lastNameTextBox.Text);
             selectedItem.Content = $"{CustomProperties.GetFirstName(selectedItem)} {CustomProperties.GetLastName(selectedItem)}";
         }
 
         private void emailTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ListBoxItem selectedItem = (studentListBox.SelectedItem as ListBoxItem);
+            if(GetSelectedItem() == null) { return; }
+            ListBoxItem selectedItem = GetSelectedItem();
             CustomProperties.SetEmail(selectedItem, emailTextBox.Text);
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            int newItemIndex = studentListBox.Items.Add(new ListBoxItem());
+            ListBoxItem newItem = (studentListBox.Items.GetItemAt(newItemIndex) as ListBoxItem);
+            newItem.Content = CustomProperties.GetFirstName(newItem);
+        }
+
+        private void removeButton_Click(object sender, RoutedEventArgs e)
+        {
+            ListBoxItem selectedItem = GetSelectedItem();
+            studentListBox.SelectedItem = null;
+            studentListBox.Items.Remove(selectedItem);
+            removeButton.IsEnabled = false;
+        }
+
+        private ListBoxItem GetSelectedItem()
+        {
+            return (studentListBox.SelectedItem as ListBoxItem);
         }
     }
 }
