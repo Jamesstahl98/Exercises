@@ -23,9 +23,14 @@
                 Width="100"
                 Height="Auto"/>
         <Button x:Name="myButton4" 
-        Content="Excercise 5"
-        Click="myButton4_Click"
-        Width="100"
-        Height="Auto"/>
+                Content="Excercise 5"
+                Click="myButton4_Click"
+                Width="100"
+                Height="Auto"/>
+        <Button x:Name="myButton5" 
+                Content="Excercise 6"
+                Click="myButton5_Click"
+                Width="100"
+                Height="Auto"/>
     </WrapPanel>
 </Window>

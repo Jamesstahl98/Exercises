@@ -10,7 +10,7 @@
         <Button x:Name="myButton" 
         Content="Button 0"
         Click="myButton_Click"
-        HorizontalAlignment="Center"
+        HorizontalAlignment="Center" 
         VerticalAlignment="Center"
         Width="100"
         Height="Auto"/>

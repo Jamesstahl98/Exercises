@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="200"/>
-            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="*"/> 
         </Grid.ColumnDefinitions>
 
         <Label x:Name="movingLabel"

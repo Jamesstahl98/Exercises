@@ -22,7 +22,7 @@ namespace WPFControllerExcercises.Views
         int clickCounter = 0;
         public WPFControllerExercise1()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void myButton_Click(object sender, RoutedEventArgs e)

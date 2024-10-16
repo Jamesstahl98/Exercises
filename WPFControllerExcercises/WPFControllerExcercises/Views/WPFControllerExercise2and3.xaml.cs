@@ -23,7 +23,7 @@ namespace WPFControllerExcercises.Views
         public WPFControllerExercise2and3()
         {
             InitializeComponent();
-            incrementingLabel.Content = labelValue;
+            incrementingLabel.Content = labelValue; 
         }
 
         private void increaseButton_Click(object sender, RoutedEventArgs e)

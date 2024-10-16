@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFControllerExcercises.Views;
+using WPFControllerExercises.Views;
 
 namespace WPFControllerExcercises
 {
@@ -25,7 +26,7 @@ namespace WPFControllerExcercises
         private void myButton1_Click(object sender, RoutedEventArgs e)
         {
             WPFControllerExercise1 window = new WPFControllerExercise1();
-            window.Show();
+            window.Show(); 
         }
 
         private void myButton2_Click(object sender, RoutedEventArgs e)
@@ -43,6 +44,12 @@ namespace WPFControllerExcercises
         private void myButton4_Click(object sender, RoutedEventArgs e)
         {
             WPFControllerExercise5 window = new WPFControllerExercise5();
+            window.Show();
+        }
+
+        private void myButton5_Click(object sender, RoutedEventArgs e)
+        {
+            WPFControllerExercise6 window = new WPFControllerExercise6();
             window.Show();
         }
     }

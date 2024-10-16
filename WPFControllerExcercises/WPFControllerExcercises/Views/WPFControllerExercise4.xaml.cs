@@ -27,7 +27,7 @@ namespace WPFControllerExcercises.Views
         {
             xPositionLabel.Content = $"X-Position: {(int)xSlider.Value}";
             yPositionLabel.Content = $"Y-Position: {(int)ySlider.Value}";
-
+             
             movingLabel.Content = $"X:{(int)xSlider.Value},Y:{(int)ySlider.Value}";
 
             Thickness margin = movingLabel.Margin;
