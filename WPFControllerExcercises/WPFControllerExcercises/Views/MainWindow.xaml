@@ -1,0 +1,31 @@
+﻿<Window x:Class="WPFControllerExcercises.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFControllerExcercises"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <WrapPanel>
+        <Button x:Name="myButton1" 
+                Content="Excercise 1"
+                Click="myButton1_Click"
+                Width="100"
+                Height="Auto"/>
+        <Button x:Name="myButton2" 
+                Content="Excercise 2 and 3"
+                Click="myButton2_Click"
+                Width="100"
+                Height="Auto"/>
+        <Button x:Name="myButton3" 
+                Content="Excercise 4"
+                Click="myButton3_Click"
+                Width="100"
+                Height="Auto"/>
+        <Button x:Name="myButton4" 
+        Content="Excercise 5"
+        Click="myButton4_Click"
+        Width="100"
+        Height="Auto"/>
+    </WrapPanel>
+</Window>

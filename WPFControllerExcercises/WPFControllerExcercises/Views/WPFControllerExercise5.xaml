@@ -1,0 +1,64 @@
+﻿<Window x:Class="WPFControllerExcercises.Views.WPFControllerExercise5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFControllerExcercises.Views"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="200"/>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="movingLabel"
+       FontSize="10"
+       Content="X:0,Y:0"
+       HorizontalAlignment="Left"
+       VerticalAlignment="Top"/>
+
+        <StackPanel Grid.Row="2"
+                    Grid.Column="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Label x:Name="xPositionLabel"
+                   Content="X-Position: 0"
+                   HorizontalAlignment="Center"/>
+            <Slider x:Name="xSlider"
+                    Maximum="100"
+                    Width="100"
+                    Margin="10,0,10,0"
+                    ValueChanged="Slider_ValueChanged"/>
+            
+            <DockPanel Margin="0,0,0,20"
+                       HorizontalAlignment="Center">
+                <Label Content="Lock X"/>
+                <CheckBox x:Name="lockXCheckBox"
+                          VerticalAlignment="Center"
+                          Unchecked="LockCheckBox_Unchecked"/>
+            </DockPanel>
+            
+            <Label x:Name="yPositionLabel"
+                   Content="Y-Position: 0"
+                   HorizontalAlignment="Center"/>
+            <Slider x:Name="ySlider"
+                    Maximum="100"
+                    Width="100"
+                    Margin="10,0,10,0"
+                    ValueChanged="Slider_ValueChanged"/>
+
+            <DockPanel Margin="0,0,0,20"
+                       HorizontalAlignment="Center">
+                <Label Content="Lock Y"/>
+                <CheckBox x:Name="lockYCheckBox"
+                        VerticalAlignment="Center"
+                          Unchecked="LockCheckBox_Unchecked"/>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>
