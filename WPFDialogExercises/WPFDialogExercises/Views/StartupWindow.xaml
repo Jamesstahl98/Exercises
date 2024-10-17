@@ -1,0 +1,23 @@
+﻿<Window x:Class="WPFDialogExercises.Views.StartupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFDialogExercises.Views"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <WrapPanel>
+            <Button x:Name="myButton1" 
+                    Content="Excercise 1 and 2"
+                    Click="myButton1_Click"
+                    Width="100"
+                    Height="Auto"/>
+            <Button x:Name="myButton2" 
+                    Content="Excercise 3 and 4"
+                    Click= "myButton2_Click"
+                    Width="100"
+                    Height="Auto"/>
+        </WrapPanel>
+    </Grid>
+</Window>
