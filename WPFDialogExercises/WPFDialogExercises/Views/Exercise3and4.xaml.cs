@@ -21,24 +21,94 @@ namespace WPFDialogExercises.Views
     /// </summary>
     public partial class Exercise3and4 : Window
     {
+        bool existingFileOpen = false;
+        bool textChanged = false;
+        string openFile = string.Empty;
+
         public Exercise3and4()
         {
             InitializeComponent();
         }
 
-        private void Close_Window(object sender, RoutedEventArgs e)
+        private void CloseWindow(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
         private void OpenFile(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog();
-            var result = dialog.ShowDialog();
+            OpenFileDialog dialog = new OpenFileDialog();
+            bool? result = dialog.ShowDialog();
 
             if(result == true)
             {
+                existingFileOpen = true;
+                openFile = dialog.FileName;
                 textBox.Text = File.ReadAllText(dialog.FileName);
+                Title = dialog.SafeFileName;
+            }
+        }
+
+        private void NewFile(object sender, RoutedEventArgs e)
+        {
+            if(textChanged)
+            {
+                var messageBox = (MessageBox.Show("Save open file?",
+                    "Unsaved Changes",
+                    MessageBoxButton.YesNoCancel,
+                    MessageBoxImage.Question));
+                switch(messageBox)
+                {
+                    case MessageBoxResult.Yes:
+                        Save(sender, e);
+                        break;
+                    case MessageBoxResult.No:
+                        existingFileOpen = false;
+                        textChanged = false;
+                        Title = "Untitled Document";
+                        textBox.Text = string.Empty;
+                        break;
+                    case MessageBoxResult.Cancel:
+                        return;
+                }
+            }
+            textChanged = false;
+            existingFileOpen = false;
+            textBox.Text = string.Empty;
+            Title = "Untitled Document";
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            if(!existingFileOpen)
+            {
+                SaveAs(sender, e);
+                return;
+            }
+            File.WriteAllText(openFile, textBox.Text);
+            textChanged = false;
+        }
+
+        private void SaveAs(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.InitialDirectory = openFile;
+            bool? result = dialog.ShowDialog();
+
+            if(result == true)
+            {
+                File.WriteAllText(dialog.FileName, textBox.Text);
+                Title = dialog.SafeFileName;
+                textChanged = false;
+            }
+        }
+
+        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            textChanged = true;
+            if (!Title.EndsWith('*'))
+            {
+                Title += '*';
             }
         }
     }

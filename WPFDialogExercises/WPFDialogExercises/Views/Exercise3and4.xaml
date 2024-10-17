@@ -5,20 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFDialogExercises.Views"
         mc:Ignorable="d"
-        Title="Exercise3and4" Height="450" Width="800">
+        Title="Untitled Document" Height="450" Width="800">
     <Grid>
         <Menu>
             <MenuItem Header="File">
+                <MenuItem Header="New"
+                          Click="NewFile"/>
                 <MenuItem Header="Open"
                           Click="OpenFile"/>
+                <MenuItem Header="Save"
+                          Click="Save"/>
+                <MenuItem Header="Save As"
+                          Click="SaveAs"/>
                 <MenuItem Header="Exit"
-                          Click="Close_Window"/>
+                          Click="CloseWindow"/>
             </MenuItem>
         </Menu>
         <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       Margin="20,20,20,20">
             <TextBox x:Name="textBox"
-                 IsReadOnly="True"/>
+                     TextChanged="textBox_TextChanged"/>
         </ScrollViewer>
     </Grid>
 </Window>
