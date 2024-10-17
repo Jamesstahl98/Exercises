@@ -111,5 +111,12 @@ namespace WPFDialogExercises.Views
                 Title += '*';
             }
         }
+
+        private void textBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            int row = textBox.GetLineIndexFromCharacterIndex(textBox.CaretIndex);
+            int col = textBox.CaretIndex - textBox.GetCharacterIndexFromLineIndex(row);
+            textBlock.Text = "Line " + (row + 1) + ", Char " + (col + 1);
+        }
     }
 }

@@ -24,7 +24,14 @@
         <ScrollViewer HorizontalScrollBarVisibility="Auto"
                       Margin="20,20,20,20">
             <TextBox x:Name="textBox"
-                     TextChanged="textBox_TextChanged"/>
+                     TextChanged="textBox_TextChanged"
+                     SelectionChanged="textBox_SelectionChanged"/>
         </ScrollViewer>
+        <StatusBar VerticalAlignment="Bottom"
+                   Height="20">
+            <StatusBarItem>
+                <TextBlock x:Name="textBlock"/>
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
 </Window>
