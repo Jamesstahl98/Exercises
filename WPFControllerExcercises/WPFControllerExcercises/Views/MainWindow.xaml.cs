@@ -49,7 +49,7 @@ namespace WPFControllerExcercises
 
         private void myButton5_Click(object sender, RoutedEventArgs e)
         {
-            WPFControllerExercise6and7 window = new WPFControllerExercise6and7();
+            WPFControllerExercise6789 window = new WPFControllerExercise6789();
             window.Show();
         }
     }

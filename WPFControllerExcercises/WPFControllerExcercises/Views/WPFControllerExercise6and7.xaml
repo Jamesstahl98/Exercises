@@ -1,4 +1,4 @@
-﻿<Window x:Class="WPFControllerExercises.Views.WPFControllerExercise6and7"
+﻿<Window x:Class="WPFControllerExercises.Views.WPFControllerExercise6789"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,16 +8,44 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="*"/>
             <ColumnDefinition Width ="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Margin="20,50,20,20">
+        <Menu HorizontalAlignment="Left" VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Exit"
+                          Click="ExitProgram"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Add Student"
+                          Click="AddStudent"/>
+                <MenuItem x:Name="removeMenuItem"
+                          Header="Remove Student"
+                          IsEnabled="False"
+                          Click="RemoveStudent"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel Grid.Column="0"
+                    VerticalAlignment="Center"
+                    Grid.Row="1"
+                    Margin="20,50,20,20">
             <Label FontSize="25">Students:</Label>
             <ListBox x:Name="studentListBox"
-                     SelectionChanged="ListBox_SelectionChanged"> 
+                     SelectionChanged="ListBox_SelectionChanged">
+                <ListBox.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="removeContextMenuItem"
+                                  Header="Add Student" 
+                                  Click="AddStudent"/>
+                        <MenuItem Header="Remove Student"
+                                  IsEnabled="False"
+                                  Click="RemoveStudent"/>
+                    </ContextMenu>
+                </ListBox.ContextMenu>
                 <ListBoxItem>
                     Kalle Andersson
                 </ListBoxItem>
@@ -38,7 +66,11 @@
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150">
+        <StackPanel Grid.Column="1"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="150">
             <Label>
                 First name:
             </Label>
@@ -67,13 +99,13 @@
                         Content="Add"
                         Width="50" 
                         Margin="0,0,10,0"
-                        Click="addButton_Click"/>
+                        Click="AddStudent"/>
                 <Button Name="removeButton"
                         Content="Remvoe"
                         Width="50"
                         IsEnabled="False"
                         Margin="10,0,0,0"
-                        Click="removeButton_Click"/>
+                        Click="RemoveStudent"/>
             </DockPanel>
         </StackPanel>
     </Grid>

@@ -28,7 +28,7 @@
                 Width="100"
                 Height="Auto"/>
         <Button x:Name="myButton5" 
-                Content="Excercise 6"
+                Content="Excercise 6,7,8,9"
                 Click="myButton5_Click"
                 Width="100"
                 Height="Auto"/>

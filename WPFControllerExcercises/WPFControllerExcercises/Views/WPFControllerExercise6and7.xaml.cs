@@ -18,13 +18,13 @@ namespace WPFControllerExercises.Views
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class WPFControllerExercise6and7 : Window
+    public partial class WPFControllerExercise6789 : Window
     {
-        public WPFControllerExercise6and7()
+        public WPFControllerExercise6789()
         {
-            InitializeComponent();
+            InitializeComponent(); 
             for (int i = 0; i < studentListBox.Items.Count; i++)
-            {
+            { 
                 ListBoxItem item = (ListBoxItem)studentListBox.Items.GetItemAt(i);
                 string[] fullNameString = item.Content.ToString().Split(' ');
                 CustomProperties.SetFirstName(item, fullNameString[0]);
@@ -40,7 +40,7 @@ namespace WPFControllerExercises.Views
             firstNameTextBox.Text = CustomProperties.GetFirstName((ListBoxItem)studentListBox.SelectedItem);
             lastNameTextBox.Text = CustomProperties.GetLastName((ListBoxItem)studentListBox.SelectedItem);
             emailTextBox.Text = CustomProperties.GetEmail((ListBoxItem)studentListBox.SelectedItem);
-            removeButton.IsEnabled = true;
+            EnableOrDisableRemoveUI();
         }
 
         private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -66,24 +66,36 @@ namespace WPFControllerExercises.Views
             CustomProperties.SetEmail(selectedItem, emailTextBox.Text);
         }
 
-        private void addButton_Click(object sender, RoutedEventArgs e)
+        private void AddStudent(object sender, RoutedEventArgs e)
         {
             int newItemIndex = studentListBox.Items.Add(new ListBoxItem());
             ListBoxItem newItem = (studentListBox.Items.GetItemAt(newItemIndex) as ListBoxItem);
             newItem.Content = CustomProperties.GetFirstName(newItem);
         }
 
-        private void removeButton_Click(object sender, RoutedEventArgs e)
+        private void RemoveStudent(object sender, RoutedEventArgs e)
         {
             ListBoxItem selectedItem = GetSelectedItem();
             studentListBox.SelectedItem = null;
             studentListBox.Items.Remove(selectedItem);
-            removeButton.IsEnabled = false;
+            EnableOrDisableRemoveUI();
         }
 
         private ListBoxItem GetSelectedItem()
         {
             return (studentListBox.SelectedItem as ListBoxItem);
+        }
+
+        private void ExitProgram(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
+        }
+
+        private void EnableOrDisableRemoveUI()
+        {
+            removeButton.IsEnabled = !removeButton.IsEnabled;
+            removeMenuItem.IsEnabled = !removeMenuItem.IsEnabled;
+            removeContextMenuItem.IsEnabled = !removeContextMenuItem.IsEnabled;
         }
     }
 }
