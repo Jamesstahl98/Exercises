@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,13 +17,16 @@ using System.Windows.Shapes;
 namespace WPFDialogExercises.UserControls
 {
     /// <summary>
-    /// Interaction logic for UserControl1.xaml
+    /// Interaction logic for ColorRectangle.xaml
     /// </summary>
-    public partial class UserControl1 : UserControl
+    public partial class GridRectangle : UserControl
     {
-        public UserControl1()
+        public Rectangle Rectangle { get; set; }
+        public PaletteRectangle? LinkedPaletteRectangle { get; set; }
+        public GridRectangle()
         {
             InitializeComponent();
+            Rectangle = rectangle;
         }
     }
 }

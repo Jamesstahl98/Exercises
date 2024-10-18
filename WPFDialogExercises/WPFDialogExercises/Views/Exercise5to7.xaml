@@ -4,9 +4,112 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFDialogExercises.Views"
+        xmlns:uc="clr-namespace:WPFDialogExercises.UserControls"
         mc:Ignorable="d"
-        Title="Exercise5to7" Height="450" Width="800">
+        Title="Exercise5to7" Height="800" Width="800">
     <Grid>
-        <Button Content="Choose Color"/>
+        <StackPanel MouseLeftButtonDown="Palette_MouseLeftButtonDown"
+                    MouseRightButtonDown="Palette_MouseRightButtonDown"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top">
+            <DockPanel HorizontalAlignment="Center">
+                <uc:PaletteRectangle/>
+                <uc:PaletteRectangle/>
+                <uc:PaletteRectangle/>
+                <uc:PaletteRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:PaletteRectangle/>
+                <uc:PaletteRectangle/>
+                <uc:PaletteRectangle/>
+                <uc:PaletteRectangle/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center">
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Center">
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+                <uc:GridRectangle/>
+            </DockPanel>
+        </StackPanel>
+        <!--<Button Content="Choose Color"
+                Click="Button_Click"/>-->
     </Grid>
 </Window>

@@ -35,5 +35,11 @@ namespace WPFDialogExercises.Views
             Exercise3and4 window = new Exercise3and4();
             window.Show();
         }
+
+        private void myButton3_Click(object sender, RoutedEventArgs e)
+        {
+            Exercise5to7 window = new Exercise5to7();
+            window.Show();
+        }
     }
 }

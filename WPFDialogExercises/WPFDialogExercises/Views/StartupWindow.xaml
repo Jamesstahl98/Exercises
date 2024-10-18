@@ -18,6 +18,11 @@
                     Click= "myButton2_Click"
                     Width="100"
                     Height="Auto"/>
+            <Button x:Name="myButton3" 
+                    Content="Excercise 5 to 7"
+                    Click="myButton3_Click"
+                    Width="100"
+                    Height="Auto"/>
         </WrapPanel>
     </Grid>
 </Window>

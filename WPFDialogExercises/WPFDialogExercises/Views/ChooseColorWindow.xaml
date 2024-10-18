@@ -5,20 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFDialogExercises.Views"
         mc:Ignorable="d"
-        Title="ChooseColorWindow" Height="350" Width="250">
+        Title="ChooseColorWindow" Height="350" Width="250"
+        Loaded="Window_Loaded">
     <Grid>
         <StackPanel Grid.Column="1"
                     Grid.Row="0"
                     Width="100">
-            <Rectangle Width="100"
+            <Rectangle x:Name="colorRectangle"
+                       Stroke="Black"
+                       Width="100"
                        Height="100"
                        Margin="0,20,0,0"/>
-            <Label Content="Red" HorizontalAlignment="Center"/>
-            <Slider/>
-            <Label Content="Green" HorizontalAlignment="Center"/>
-            <Slider/>
-            <Label Content="Blue" HorizontalAlignment="Center"/>
-            <Slider/>
+            <Label Content="Red" 
+                   HorizontalAlignment="Center"/>
+            <Slider x:Name="redSlider"
+                    Minimum="0"
+                    Maximum="255"
+                    ValueChanged="Slider_ValueChanged"/>
+            <Label Content="Green" 
+                   HorizontalAlignment="Center"/>
+            <Slider x:Name="greenSlider"
+                    Minimum="0"
+                    Maximum="255"
+                    ValueChanged="Slider_ValueChanged"/>
+            <Label Content="Blue" 
+                   HorizontalAlignment="Center"/>
+            <Slider x:Name="blueSlider"
+                    Minimum="0"
+                    Maximum="255"
+                    ValueChanged="Slider_ValueChanged"/>
         </StackPanel>
         <DockPanel Width="150"
                    HorizontalAlignment="Center"
@@ -26,11 +41,13 @@
             <Button Content="Cancel"
                     HorizontalAlignment="Left"
                     Width="60"
-                    Margin="0,0,0,10"/>
+                    Margin="0,0,0,10"
+                    Click="CloseButton_Clicked"/>
             <Button Content="OK"
                     HorizontalAlignment="Right"
                     Width="60"
-                    Margin="0,0,0,10"/>
+                    Margin="0,0,0,10"
+                    Click="OKButton_Clicked"/>
         </DockPanel>
     </Grid>
 </Window>
