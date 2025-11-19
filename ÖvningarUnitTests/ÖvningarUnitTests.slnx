@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ÖvningarUnitTests/ÖvningarUnitTests.csproj" />
+  <Project Path="ÖvningarUnitTestsTest/ÖvningarUnitTests.Tests.csproj" Id="9428d418-5217-4f7c-a557-e77475734ac7" />
+</Solution>
