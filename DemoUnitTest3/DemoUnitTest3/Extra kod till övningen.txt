@@ -1,0 +1,31 @@
+﻿public class FakeProductRepository : IProductRepository
+    {
+        private readonly List<Product> _products = new List<Product>();
+
+        public void Add(Product product)
+        {
+            _products.Add(product);
+        }
+
+        public Product GetById(int id)
+        {
+            return _products.FirstOrDefault(p => p.Id == id);
+        }
+    }
+
+    // En stub returnerar ett förutbestämt värde.Den används inte för att
+// bekräfta att metoder anropats (då är det en mock).Målet är att isolera
+// logiken i WeatherAnalyzer.
+
+//Bra för att man kan testa logik utan beroenden av API:er eller data
+//från omvärlden.Testerna blir snabbare och mer förutsägbara.
+
+
+    //En fake är en fungerande implementation.Den använder riktig logik
+//(en lista) och beter sig som ett enkelt system i minnet.Den är mer
+//avancerad än en stub (som bara returnerar värden).
+//Används inte för att verifiera beteende som en mock.
+
+//Används när man behöver flera interaktioner med beroendet.
+//När man testar logik som kräver lagring eller tillstånd.
+//Samt när en stub är för enkel och en mock inte är lämplig.
