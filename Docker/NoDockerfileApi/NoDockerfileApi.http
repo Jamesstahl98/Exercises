@@ -1,0 +1,6 @@
+@NoDockerfileApi_HostAddress = http://localhost:5101
+
+GET {{NoDockerfileApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
